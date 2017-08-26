@@ -134,17 +134,15 @@ public class PlaceholderFragment extends Fragment {
             //Bitmap avatar_bitmap = BitmapFactory.decodeFile(avatarfile.getAbsolutePath());
             avatar_bitmap.setCornerRadius(300f);
             avatarView.setImageDrawable(avatar_bitmap);
-            avatarText.setText(getArguments().getString(ARG_SENDER));
             Log.d("onCreateView", "High res Avatar found.");
         }else if(avatarfile_small.exists()) {
             Bitmap avatar_bitmap = BitmapFactory.decodeFile(avatarfile_small.getAbsolutePath());
             avatarView.setImageBitmap(avatar_bitmap);
-            avatarText.setText(getArguments().getString(ARG_SENDER));
             Log.d("onCreateView", "Low res Avatar found.");
         }else{
             avatarView.setImageResource(R.drawable.ic_account_circle_black_48px);
-            avatarText.setText("Unbekannt");
         }
+        avatarText.setText(getArguments().getString(ARG_SENDER));
         Log.d("onCreateView", "ARG_FOREVERNEW: " + getArguments().getInt(ARG_FOREVERNEW));
         if(getArguments().getInt(ARG_FOREVERNEW)!=0) {
             imageButton_tag.setChecked(true);
